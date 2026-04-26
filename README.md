@@ -1,4 +1,4 @@
-# Raaha — swipe-card prototype
+# Raaha Mobile — swipe-card prototype
 
 Screen 3 of the Raaha case study — the check-in swipe deck. Mobile-first
 gesture prototype. Visual polish comes in a later pass; this build exists to
