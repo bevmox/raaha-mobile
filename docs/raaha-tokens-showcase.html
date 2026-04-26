@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raaha — Design System Showcase</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400..600&family=Tajawal:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* ===== Canvas ===== */
+  --bg-canvas: #F6F2EC;
+  --bg-surface: #FFFFFF;
+  --bg-surface-warm: #FBF7F1;
+
+  /* ===== Ink ===== */
+  --ink-primary: #1C1A16;
+  --ink-secondary: #5E574D;
+  --ink-tertiary: #938A7E;
+  --line-hairline: #E5DED3;
+
+  /* ===== Accent ===== */
+  --accent-primary: #2A5A4E;
+  --accent-primary-soft: #E8EFEC;
+  --accent-ink: #C9A96E;
+
+  /* ===== Semantic ===== */
+  --state-caution: #B85830;
+  --state-muted: #938A7E;
+
+  /* ===== Raaha reading — diagnostic gradient ===== */
+  --raaha-tight: #C17A3E;
+  --raaha-mid-warm: #D9B07C;
+  --raaha-mid-cool: #A8BFB4;
+  --raaha-clear: #7FA89E;
+
+  /* ===== Typography ===== */
+  --font-latin: 'Google Sans Flex', system-ui, -apple-system, sans-serif;
+  --font-arabic: 'Tajawal', system-ui, sans-serif;
+
+  /* ===== Type scale (mobile baseline 16px) ===== */
+  --size-display: 32px;      --line-display: 40px;
+  --size-heading: 22px;      --line-heading: 30px;
+  --size-body-lg: 18px;      --line-body-lg: 28px;
+  --size-body: 16px;         --line-body: 24px;
+  --size-caption: 13px;      --line-caption: 18px;
+  --size-micro: 11px;        --line-micro: 16px;
+
+  /* ===== Spacing (8px grid) ===== */
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+
+  /* ===== Radii ===== */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* ===== Elevation ===== */
+  --shadow-sm: 0 1px 2px rgba(28, 26, 22, 0.04);
+  --shadow-md: 0 4px 12px rgba(28, 26, 22, 0.06);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-latin);
+  background: var(--bg-canvas);
+  color: var(--ink-primary);
+  padding: var(--space-12) var(--space-6);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.spec {
+  font-size: var(--size-micro);
+  line-height: var(--line-micro);
+  font-weight: 500;
+  color: var(--ink-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-2);
+}
+
+/* ===== Wordmark ===== */
+.hero {
+  text-align: center;
+  padding: var(--space-6) 0;
+}
+.hero-ar {
+  font-family: var(--font-arabic);
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: 500;
+  color: var(--ink-primary);
+  margin-bottom: var(--space-2);
+}
+.hero-en {
+  font-size: var(--size-caption);
+  color: var(--ink-secondary);
+  letter-spacing: 0.14em;
+}
+
+/* ===== رَاحَة reading card ===== */
+.reading-card {
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+.reading-number {
+  font-size: var(--size-display);
+  line-height: var(--line-display);
+  font-weight: 500;
+  color: var(--ink-primary);
+  margin-bottom: var(--space-3);
+}
+.gradient-strip {
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(
+    to right,
+    var(--raaha-tight) 0%,
+    var(--raaha-mid-warm) 35%,
+    var(--raaha-mid-cool) 65%,
+    var(--raaha-clear) 100%
+  );
+  margin-bottom: var(--space-2);
+}
+.gradient-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--size-micro);
+  color: var(--ink-tertiary);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+/* ===== Raaha voice ===== */
+.voice-block {
+  padding: var(--space-6) 0;
+  border-top: 1px solid var(--line-hairline);
+  border-bottom: 1px solid var(--line-hairline);
+}
+.voice-text {
+  font-size: var(--size-body-lg);
+  line-height: var(--line-body-lg);
+  color: var(--ink-primary);
+}
+.voice-text + .voice-text {
+  margin-top: var(--space-4);
+}
+
+/* ===== Artefact block ===== */
+.artefact {
+  background: var(--bg-surface-warm);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+.artefact-meta {
+  font-size: var(--size-caption);
+  line-height: var(--line-caption);
+  color: var(--ink-secondary);
+  margin-bottom: var(--space-2);
+}
+.artefact-body {
+  font-size: var(--size-body);
+  line-height: var(--line-body);
+  color: var(--ink-primary);
+}
+.artefact-body .ar {
+  font-family: var(--font-arabic);
+}
+
+/* ===== Swipe card ===== */
+.swipe {
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+.swipe-prompt {
+  font-size: var(--size-body-lg);
+  line-height: var(--line-body-lg);
+  color: var(--ink-primary);
+  margin-bottom: var(--space-6);
+}
+.swipe-options {
+  display: flex;
+  gap: var(--space-3);
+}
+.swipe-options button {
+  flex: 1;
+  background: transparent;
+  border: 1px solid var(--line-hairline);
+  color: var(--ink-primary);
+  padding: var(--space-3);
+  font-size: var(--size-caption);
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 200ms ease;
+}
+.swipe-options button:hover {
+  border-color: var(--ink-primary);
+}
+
+/* ===== Ambient signal ===== */
+.ambient {
+  font-size: var(--size-caption);
+  line-height: var(--line-caption);
+  font-style: italic;
+  color: var(--ink-secondary);
+  margin-top: var(--space-3);
+}
+
+/* ===== Buttons ===== */
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+button.btn {
+  font-family: inherit;
+  font-size: var(--size-body);
+  font-weight: 500;
+  padding: 14px var(--space-6);
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: opacity 200ms ease;
+}
+button.btn:hover { opacity: 0.92; }
+.btn-primary {
+  background: var(--accent-primary);
+  color: white;
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--ink-primary);
+  border: 1px solid var(--ink-primary);
+}
+
+/* ===== 17:10 close ===== */
+.close-block {
+  padding: var(--space-6) 0;
+}
+.close-text {
+  font-size: var(--size-heading);
+  line-height: var(--line-heading);
+  color: var(--accent-ink);
+  font-weight: 500;
+}
+
+/* ===== Colour chip grid (ingestion aid) ===== */
+.chips {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-2);
+}
+.chip {
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  position: relative;
+  border: 1px solid var(--line-hairline);
+}
+.chip-label {
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--ink-primary);
+  background: rgba(255,255,255,0.8);
+  padding: 2px 4px;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+}
+.chip.dark .chip-label { color: white; background: rgba(0,0,0,0.3); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Wordmark: bilingual identity -->
+  <div>
+    <div class="spec">Wordmark — Tajawal (ar), Google Sans Flex (en)</div>
+    <div class="hero">
+      <div class="hero-ar">راحة</div>
+      <div class="hero-en">R A A H A</div>
+    </div>
+  </div>
+
+  <!-- Colour chips: machine-readable palette -->
+  <div>
+    <div class="spec">Palette — canvas, ink, accent, state</div>
+    <div class="chips">
+      <div class="chip" style="background:#F6F2EC"><span class="chip-label">canvas</span></div>
+      <div class="chip" style="background:#FBF7F1"><span class="chip-label">surface.warm</span></div>
+      <div class="chip dark" style="background:#1C1A16"><span class="chip-label">ink</span></div>
+      <div class="chip dark" style="background:#5E574D"><span class="chip-label">ink.2</span></div>
+      <div class="chip dark" style="background:#2A5A4E"><span class="chip-label">accent</span></div>
+      <div class="chip" style="background:#E8EFEC"><span class="chip-label">accent.soft</span></div>
+      <div class="chip dark" style="background:#C9A96E"><span class="chip-label">ceremonial</span></div>
+      <div class="chip dark" style="background:#B85830"><span class="chip-label">caution</span></div>
+    </div>
+  </div>
+
+  <!-- رَاحَة reading: diagnostic gradient -->
+  <div>
+    <div class="spec">رَاحَة reading — diagnostic of the day, not of the user</div>
+    <div class="reading-card">
+      <div class="reading-number">64</div>
+      <div class="gradient-strip"></div>
+      <div class="gradient-labels">
+        <span>warm-tight</span>
+        <span>cool-clear</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Raaha's voice: the hero typographic moment -->
+  <div>
+    <div class="spec">Raaha's voice — body.lg · the product speaks</div>
+    <div class="voice-block">
+      <p class="voice-text">Four meetings since 09:30. You last ate at 11:40. Your 14:00 with Reem ended without a close. Your stand-up is in ten minutes.</p>
+      <p class="voice-text">Want me to push the stand-up to 14:40 and help you close the loop with Reem first?</p>
+    </div>
+  </div>
+
+  <!-- Artefact: bilingual draft -->
+  <div>
+    <div class="spec">Artefact — delay note to team (Arabic salaam + English body)</div>
+    <div class="artefact">
+      <div class="artefact-meta">To: Team · via chat</div>
+      <div class="artefact-body">
+        <span class="ar">السلام عليكم</span> — pushing our stand-up to 14:40, ten minutes. Thanks for the flex.
+      </div>
+    </div>
+  </div>
+
+  <!-- Swipe check-in -->
+  <div>
+    <div class="spec">Swipe check-in — binary, contextual, two-second input</div>
+    <div class="swipe">
+      <p class="swipe-prompt">Your 1:1 with Reem ran long. How did it land?</p>
+      <div class="swipe-options">
+        <button>still heavy</button>
+        <button>landed okay</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Restoration proposal -->
+  <div>
+    <div class="spec">Restoration proposal — one offer, not a menu</div>
+    <div class="reading-card">
+      <p class="voice-text">Everything will be fine. Change your scenery — it'll help you reframe your mind. Shall we have your 1:1 over coffee?</p>
+      <p class="ambient">The Coffee Shop is less busy than usual right now.</p>
+    </div>
+  </div>
+
+  <!-- Primary actions -->
+  <div>
+    <div class="spec">Buttons — primary and secondary</div>
+    <div class="buttons">
+      <button class="btn btn-primary">Yes, move it</button>
+      <button class="btn btn-secondary">Keep as-is</button>
+    </div>
+  </div>
+
+  <!-- 17:10 close -->
+  <div>
+    <div class="spec">17:10 close — affirmation register, ceremonial accent</div>
+    <div class="close-block">
+      <p class="close-text">Good work today.</p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
